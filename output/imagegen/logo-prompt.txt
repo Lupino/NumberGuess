@@ -1,0 +1,7 @@
+Use case: logo-brand
+Asset type: WeChat number-guessing mini-game app icon, square 1024x1024 PNG.
+Primary request: Create a polished, distinctive and minimal logo for a four-digit number deduction game. Four chunky rounded square tiles in a balanced 2x2 grid, containing exactly the characters "0", "1", "2", "?" in reading order. The question mark represents the secret digit.
+Style: crisp geometric flat graphic, beautifully balanced optical spacing, friendly bold rounded typography, extremely readable at small app-icon sizes.
+Color palette: rich royal blue #4169E1, deep navy #172F62, warm white; one subtle mint-green clue accent on the question tile, matching a clean blue-and-white puzzle game.
+Composition: one centered large symbol, generous safe margin suitable for circular cropping, full-bleed solid royal-blue square background, white and pale-blue tiles, navy digits, mint question tile. No outer frame, no rounded outer icon mask; the platform will crop the square.
+Constraints: only four glyphs 0, 1, 2, ?; no game title, no Chinese text, no watermark, no mockup, no extra objects, no gradients, no photographic lighting, no 3D extrusion, no tiny details. A finished production app icon, not a concept sheet.

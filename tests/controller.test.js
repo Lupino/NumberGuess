@@ -1,0 +1,37 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const Controller = require('../minigame/utils/controller');
+const g = require('../minigame/utils/game');
+
+test('小游戏控制器：数字键、重复输入、删除、恢复、重开确认与战绩', () => {
+  let stored = { version: 1, game: g.createGame('classic', '0123'), stats: g.emptyStats() };
+  let modal;
+  let draws = 0;
+  const storage = { load: () => JSON.parse(JSON.stringify(stored)), save: state => { stored = JSON.parse(JSON.stringify(state)); return true; } };
+  const platform = { showModal: options => { modal = options; } };
+  const mount = () => new Controller(storage, platform, () => draws++);
+  let c = mount();
+  c.digit('0'); c.digit('0');
+  assert.equal(c.input, '0'); assert.ok(c.error);
+  c.submit(); assert.equal(c.state.game.guesses.length, 0);
+  c.digit('2'); c.digit('1'); c.digit('4'); c.digit('5');
+  assert.equal(c.input, '0214');
+  c.erase(); assert.equal(c.input, '021'); c.digit('4'); c.submit();
+  assert.deepEqual(c.state.game.guesses, [{ guess: '0214', a: 1, b: 2 }]);
+  c = mount(); assert.equal(c.state.game.guesses.length, 1);
+  c.restart('hard'); modal.success({ confirm: false });
+  assert.equal(c.state.game.difficulty, 'classic');
+  for (const digit of '0123') c.digit(digit);
+  c.submit(); assert.equal(c.state.game.status, 'won');
+  c.submit(); c.digit('4'); assert.equal(c.input, '');
+  assert.equal(c.state.stats.classic.wins, 1);
+  c = mount(); assert.equal(c.state.stats.classic.wins, 1);
+  c.clearStats(); modal.success({ confirm: false }); assert.equal(c.state.stats.classic.wins, 1);
+  c.clearStats(); modal.success({ confirm: true }); assert.equal(c.state.stats.classic.wins, 0);
+  assert.equal(c.state.game.status, 'won');
+  c.restart(); assert.equal(c.state.game.status, 'playing');
+  c.restart('hard'); modal.success({ confirm: true }); assert.equal(c.state.game.difficulty, 'hard');
+  assert.equal(c.state.stats.classic.completed, 0);
+  c.rules(); assert.ok(modal.content.includes('1A2B'));
+  assert.ok(draws > 0);
+});

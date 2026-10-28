@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">NumberGuess 猜数字</title>
+  <desc id="desc">皇家蓝背景上的四个圆角数字块，依次为零、一、二和问号，问号块为薄荷绿色。</desc>
+  <path fill="#4169E1" d="M0 0h1024v1024H0z"/>
+  <rect x="172" y="172" width="320" height="320" rx="68" fill="#FFFFFF"/>
+  <rect x="532" y="172" width="320" height="320" rx="68" fill="#FFFFFF"/>
+  <rect x="172" y="532" width="320" height="320" rx="68" fill="#EAF0FF"/>
+  <rect x="532" y="532" width="320" height="320" rx="68" fill="#B9EFD9"/>
+  <g fill="none" stroke="#172F62" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M332 254c-38 0-54 30-54 78s16 78 54 78 54-30 54-78-16-78-54-78Z"/>
+    <path d="m654 283 40-29v156m-40 0h80"/>
+    <path d="M278 655c4-26 25-42 54-42 31 0 53 17 53 43 0 22-17 37-41 55l-65 59h108"/>
+    <path d="M642 651c2-26 22-42 51-42 29 0 50 17 50 42 0 20-12 31-31 43-16 10-20 19-20 31"/>
+  </g>
+  <circle cx="692" cy="770" r="18" fill="#172F62"/>
+</svg>
